@@ -26,6 +26,10 @@ app.use(cors(
   }
 ));
 
+app.get('/', (req, res) => {
+  res.json("Hello");
+})
+
 app.post('/api/analyze', async (req, res) => {
   const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
   // console.log("DEBUG 1: ",req.body);
