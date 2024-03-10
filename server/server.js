@@ -4,7 +4,6 @@ const cors = require('cors');
 const app = express();
 require('dotenv').config();
 const port = process.env.PORT || 5000;
-app.use(cors());
 app.use(bodyParser.json());
 
 app.use((req, res, next) => {
@@ -20,7 +19,7 @@ app.use((req, res, next) => {
 
 app.use(cors(
   {
-    origin: ['https://opini-analyzer.vercel.app/'],
+    origin: ['https://opini-analyzer-client.vercel.app/'],
     methods: ['POST', 'GET'],
     credentials: true
   }
