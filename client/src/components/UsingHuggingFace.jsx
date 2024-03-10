@@ -5,7 +5,7 @@ function UsingHuggingFace() {
   const [result, setResult] = useState(null);
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch('http://localhost:5000/api/analyze', {
+    const response = await fetch('https://opini-analyzer.vercel.app/analyze', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
