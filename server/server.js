@@ -18,6 +18,14 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use(cors(
+  {
+    origin: ['https://opini-analyzer.vercel.app/'],
+    methods: ['POST', 'GET'],
+    credentials: true
+  }
+));
+
 app.post('/api/analyze', async (req, res) => {
   const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
   // console.log("DEBUG 1: ",req.body);
