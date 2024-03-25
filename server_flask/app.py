@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
+# from mangum import Mangum
 from dotenv import load_dotenv
 import requests
 import os
@@ -109,6 +110,3 @@ def home():
     # return f"Running Flask with sentiment analysis! URL: {DEV_URL}"
     return f"Running Flask with sentiment analysis! PORT: {PORT}"
 
-# Run the Flask application on the specified port
-if __name__ == '__main__':
-    app.run(debug=True, port=PORT)
