@@ -18,9 +18,9 @@ app.use((req, res, next) => {
   next();
 });
 
-app.post('/api/analyze', async (req, res) => {
+app.post('/api/analyze1', async (req, res) => {
   const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
-  // console.log("DEBUG 1: ",req.body);
+  console.log("DEBUG 1: ",req.body);
   const response = await fetch(`https://api-inference.huggingface.co/models/${process.env.APP_HUGGINGFACE_MODEL}`, {
     method: 'POST',
     headers: {
@@ -34,15 +34,39 @@ app.post('/api/analyze', async (req, res) => {
   // console.log("DEBUG 3: ",data[0][0]);
   // console.log("DEBUG 4: ",data[0][0].score);
   if (data && data.length > 0) {
-    // Assuming the structure of the data is as expected
-    // You might need to adjust based on the actual response
     const result = {
       label: data[0][0].label,
       score: data[0][0].score,
     };
-    res.json(result);
+    res.status(200).json({ok:1, result:result});
   } else {
-    res.status(500).json({ error: 'Failed to analyze sentiment' });
+    res.status(500).json({ ok:-1, message: 'Failed to analyze sentiment' });
+  }
+});
+
+app.post('/api/analyze2', async (req, res) => {
+  const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
+  console.log("DEBUG 1: ",req.body);
+  const response = await fetch(`https://api-inference.huggingface.co/models/${process.env.APP_HUGGINGFACE_MODEL}`, {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${process.env.APP_HUGGINGFACE_API}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ inputs: req.body.text }),
+  });
+  const data = await response.json();
+  // console.log("DEBUG 2: ",data[0]);
+  // console.log("DEBUG 3: ",data[0][0]);
+  // console.log("DEBUG 4: ",data[0][0].score);
+  if (data && data.length > 0) {
+    const result = {
+      label: data[0][0].label,
+      score: data[0][0].score,
+    };
+    res.status(200).json({ok:1, result:result});
+  } else {
+    res.status(500).json({ ok:-1, message: 'Failed to analyze sentiment' });
   }
 });
 
