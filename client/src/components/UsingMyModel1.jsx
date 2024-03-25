@@ -7,7 +7,7 @@ function UsingMyModel1() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch('http://localhost:5000/api/analyze2', {
+    const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/analyze2`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
