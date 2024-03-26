@@ -111,4 +111,4 @@ def home():
 
 # Run the Flask application on the specified port
 if __name__ == '__main__':
-    app.run(debug=True, port=PORT)
+    app.run(debug=False, port=PORT)
