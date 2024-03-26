@@ -13,10 +13,14 @@ app = Flask(__name__)
 CORS(app)  # Enable CORS
 
 # Get environment variables
-PORT = os.getenv('PORT')
-HUGGINGFACE_MODEL = os.getenv('APP_HUGGINGFACE_MODEL')
-HUGGINGFACE_API = os.getenv('APP_HUGGINGFACE_API')
-DEV_URL = os.getenv('DEV_URL')
+# PORT = os.getenv('PORT')
+# HUGGINGFACE_MODEL = os.getenv('APP_HUGGINGFACE_MODEL')
+# HUGGINGFACE_API = os.getenv('APP_HUGGINGFACE_API')
+# DEV_URL = os.getenv('DEV_URL')
+PORT = 5000
+HUGGINGFACE_MODEL = "cardiffnlp/twitter-roberta-base-sentiment-latest"
+HUGGINGFACE_API = "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"
+DEV_URL = "http://localhost:5000"
 
 headers = {
     'Authorization': f'Bearer {HUGGINGFACE_API}',
