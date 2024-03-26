@@ -4,7 +4,6 @@ from dotenv import load_dotenv
 import requests
 import os
 from textblob import TextBlob
-from mangum import Mangum
 
 # Load environment variables
 load_dotenv()
@@ -113,6 +112,3 @@ def home():
 # Run the Flask application on the specified port
 if __name__ == '__main__':
     app.run(debug=True, port=PORT)
-    
-    # Wrap the Flask app with Mangum
-    handler = Mangum(app)
