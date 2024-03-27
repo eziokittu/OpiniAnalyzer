@@ -1,9 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import CountdownTimer from './CountdownTimer';
 
 function UsingMyModel1({getData}) {
   const [text, setText] = useState('');
   const [result, setResult] = useState(null);
   const [disabled, setDisabled] = useState(false);
+  const [showTimer, setShowTimer] = useState(false); // State variable to control timer visibility
+  const [timerTrigger, setTimerTrigger] = useState(false); // State variable to trigger the timer
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -16,20 +19,26 @@ function UsingMyModel1({getData}) {
     });
 
     if (response.ok) {
-      const jsonResponse = await response.json(); // Corrected to ensure JSON parsing
+      const jsonResponse = await response.json();
       if (jsonResponse.ok === 1) {
-        setResult(jsonResponse.result); // Update based on your Flask response structure
+        setResult(jsonResponse.result);
         setDisabled(true);
-        setTimeout(() => {
-          setDisabled(false);
-        }, 10000);
+        setShowTimer(true); // Show the timer
+        setTimerTrigger(true); // Trigger the timer
         getData(jsonResponse.result)
       } else {
-        console.log(jsonResponse.message); // Log the message from Flask
+        console.log(jsonResponse.message);
       }
     } else {
       console.log('Network response was not ok.');
     }
+  };
+
+  // Callback function to handle timer end event
+  const handleTimerEnd = () => {
+    setShowTimer(false); // Hide the timer
+    setTimerTrigger(false); // Reset the timer trigger
+    setDisabled(false); // Enable the button
   };
 
   return (
@@ -60,10 +69,15 @@ function UsingMyModel1({getData}) {
           onChange={(e) => setText(e.target.value)}
         ></textarea>
         <button 
+          disabled={disabled}
           onClick={handleSubmit}
-          className="px-4 py-2 bg-red-500 hover:bg-red-700
-          text-white rounded-xl sm:flex"
+          className={`px-4 py-2 ${disabled ? 'bg-gray-600' : 'bg-red-500 hover:bg-red-700'}
+          text-white rounded-xl sm:flex `}
         >Analyze Review Sentiment</button>
+
+        {/* Render the CountdownTimer component */}
+        {showTimer && <CountdownTimer triggerTimer={timerTrigger} onTimerEnd={handleTimerEnd} timeInSeconds={1} />}
+        
         {result && (
           <div className="sm:absolute relative bottom-2 right-0">
             {/* For negative result */}

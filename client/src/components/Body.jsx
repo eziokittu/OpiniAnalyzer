@@ -10,17 +10,17 @@ function Body() {
 	const [countNeutral, setCountNeutral] = useState(0);
 	const [sentimentData, setSentimentData] = useState({ "neutral": 0, "positive": 0, "negative": 0 });
 
-	const getData = (data) => {
+	const getData = async (data) => {
 		if (data === 'neutral'){
-			setCountNeutral(countNeutral+1);
+			await setCountNeutral(countNeutral+1);
 		}
 		else if (data === 'positive'){
-			setCountPositive(countPositive+1);
+			await setCountPositive(countPositive+1);
 		}
 		else if (data === 'negative'){
-			setCountNegative(countNegative+1);
+			await setCountNegative(countNegative+1);
 		}
-		setSentimentData({ "neutral": countNeutral, "positive": countPositive, "negative": countNegative });
+		await setSentimentData({ "neutral": countNeutral, "positive": countPositive, "negative": countNegative });
 	}
 
 	return (
@@ -34,6 +34,10 @@ function Body() {
 				<div
 					className='text-lg text-red-900'
 				>Understanding the tone of your review (positive / neutral / negative)
+				</div>
+				<div
+					className='text-sm text-red-900 my-4'
+				><span>The server is </span><span className='font-bold'>hosted for free</span>, and takes some time to load (for the 1st time only), so please <span className='font-bold'>wait for 10-15 seconds</span> and then it will work!
 				</div>
 			</div>
 

@@ -107,28 +107,6 @@ def analyze_text2():
         return jsonify({'ok': 1, 'result': result}), 200
     except Exception as e:
         return jsonify({'ok': -1, 'message': 'error in processing the data!'}), 500
-    
-@app.route('/api/analyze3', methods=['POST'])
-def analyze():
-    data = request.json
-    # Change 'reviews' to 'texts' as per your new request body
-    reviews = data['texts']  
-    results = {'positive': 0, 'neutral': 0, 'negative': 0}
-
-    for review in reviews:
-        analysis = TextBlob(review)
-        if analysis.sentiment.polarity > 0:
-            results['positive'] += 1
-        elif analysis.sentiment.polarity == 0:
-            results['neutral'] += 1
-        else:
-            results['negative'] += 1
-    
-    total = len(reviews)
-    # Calculate the percentage for each sentiment
-    percentages = {k: round(v / total * 100, 2) for k, v in results.items()}  # Added rounding for better readability
-    # Return the percentages in the response
-    return jsonify({'ok': 1, 'result': percentages})
 
 @app.route("/")
 def home():

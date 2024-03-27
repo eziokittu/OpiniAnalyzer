@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import CountdownTimer from './CountdownTimer'; // Import the CountdownTimer component
 
 function UsingHuggingFace({getData}) {

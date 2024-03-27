@@ -44,15 +44,16 @@ function SentimentPieChart({ data }) {
   }, [data]);
 
 	return (
-		<div className='border-2 border-bg-gray-400 p-4 flex flex-col'>
+		<div className=' my-8 shadow-xl rounded-xl p-4 flex flex-col text-center items-center justify-center 
+    bg-gradient-to-b from-black/10 via-black/20 to-black/5 border-1 border-bg-gray-400'>
 			<div className='text-2xl'>Pie Chart for the review's sentiments</div>
-			<div>
+      {chartData && (
+			<div className='h-[300px]'>
 				<Pie 
 					data={chartData} 
-					width={400}
-					height={400}
 				/>
 			</div>
+      )}
 		</div>
 	)
 }
