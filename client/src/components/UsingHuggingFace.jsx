@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import CountdownTimer from './CountdownTimer'; // Import the CountdownTimer component
 
-function UsingHuggingFace({ disableTimeInMs }) {
+function UsingHuggingFace({getData}) {
   const [text, setText] = useState('');
   const [result, setResult] = useState(null);
   const [disabled, setDisabled] = useState(false);
@@ -25,6 +25,7 @@ function UsingHuggingFace({ disableTimeInMs }) {
         setDisabled(true);
         setShowTimer(true); // Show the timer
         setTimerTrigger(true); // Trigger the timer
+        getData(jsonResponse.result.label)
       } else {
         console.log(jsonResponse.message);
       }

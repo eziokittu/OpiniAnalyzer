@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-function UsingMyModel1() {
+function UsingMyModel1({getData}) {
   const [text, setText] = useState('');
   const [result, setResult] = useState(null);
   const [disabled, setDisabled] = useState(false);
@@ -23,6 +23,7 @@ function UsingMyModel1() {
         setTimeout(() => {
           setDisabled(false);
         }, 10000);
+        getData(jsonResponse.result)
       } else {
         console.log(jsonResponse.message); // Log the message from Flask
       }
@@ -46,7 +47,7 @@ function UsingMyModel1() {
           <span
             className='font-bold underline'
           >
-            <a href='https://huggingface.co/cardiffnlp/twitter-roberta-base-sentiment-latest'>
+            <a href='https://github.com/eziokittu/OpiniAnalyzer/blob/main/server_flask/server.py' target="_blank">
               My Model 1
             </a>
           </span>
