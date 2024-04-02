@@ -57,15 +57,6 @@ def analyze_sentiment(text):
     else:
         return 'negative'
     
-# @app.route('/api/analyze1', methods=['POST'])
-# def analyze_text1():
-#     text_data = request.json['text']
-#     result = analyze_with_huggingface(text_data)
-#     if result != 'Failed to analyze sentiment':
-#         return jsonify({'ok': 1, 'result': result, 'url': DEV_URL}), 200
-#     else:
-#         return jsonify({'ok': -1, 'message': result, 'url': DEV_URL}), 500
-    
 @app.route('/api/analyze1', methods=['POST'])
 def analyze_text1():
     try:
@@ -80,17 +71,6 @@ def analyze_text1():
     except Exception as e:
         # If an error occurs, return an error response
         return jsonify({'ok': -1, 'message': str(e), 'url': DEV_URL}), 500
-
-
-# @app.route('/api/analyze2', methods=['POST'])
-# def analyze_text2():
-#     text_data = request.json['text']
-#     result = analyze_with_huggingface(text_data)
-#     if result != 'Failed to analyze sentiment':
-#         return jsonify({'ok': 1, 'result': result, 'url': DEV_URL}), 200
-#     else:
-#         return jsonify({'ok': -1, 'message': result, 'url': DEV_URL}), 500
-
 
 # Define the route for sentiment analysis
 @app.route('/api/analyze2', methods=['POST'])
@@ -108,11 +88,21 @@ def analyze_text2():
     except Exception as e:
         return jsonify({'ok': -1, 'message': 'error in processing the data!'}), 500
 
+
+# Define the route for sentiment analysis
+@app.route('/api/working', methods=['GET'])
+def workingStatus():
+    try:
+        return jsonify({'ok': 1, 'message': 'server is active'}), 200
+    except Exception as e:
+        return jsonify({'ok': -1, 'message': 'server still not active!'}), 500
+    
 @app.route("/")
 def home():
     # return f"Running Flask with sentiment analysis! URL: {DEV_URL}"
-    return f"Running Flask with sentiment analysis! PORT: {PORT}"
+    return f"Running Flask with sentiment analysis! PORT: {PORT}!"
 
 # Run the Flask application on the specified port
 if __name__ == '__main__':
-    app.run(debug=False, host="0.0.0.0", port=PORT)
+    # app.run(debug=False, host="0.0.0.0", port=PORT)
+    app.run(debug=True, port=PORT)

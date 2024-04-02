@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import UsingHuggingFace from '../components/UsingHuggingFace';
 import UsingMyModel1 from '../components/UsingMyModel1';
 import SentimentPieChart from './SentimentPieChart';
@@ -9,6 +9,7 @@ function Body() {
 	const [countNegative, setCountNegative] = useState(0);
 	const [countNeutral, setCountNeutral] = useState(0);
 	const [sentimentData, setSentimentData] = useState({ "neutral": 0, "positive": 0, "negative": 0 });
+	const [serverActive, setServerActive] = useState(false);
 
 	const getData = async (data) => {
 		if (data === 'neutral'){
@@ -22,6 +23,35 @@ function Body() {
 		}
 		await setSentimentData({ "neutral": countNeutral, "positive": countPositive, "negative": countNegative });
 	}
+
+	// React useEffect hook to check server readiness
+	useEffect(() => {
+    const checkServerReady = async () => {
+      try {
+        const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/working`);
+        if (response.ok) {
+          console.log("Server is ready");
+          setServerActive(true); // Server is ready
+        } else {
+          console.log("Server not ready");
+          setServerActive(false); // Server is not ready
+        }
+      } catch (error) {
+        console.log("Error checking server status:", error);
+        setServerActive(false); // Error occurred, assume server is not ready
+      }
+    };
+
+    // Call the check immediately once
+    checkServerReady();
+
+    // Set the interval to continuously check server status
+    const intervalId = setInterval(checkServerReady, 20000); // Check every 20 seconds
+
+    // Clean up interval on component unmount
+    return () => clearInterval(intervalId);
+  }, []);
+
 
 	return (
 		<div className={`p-8 flex-col text-center`}>
@@ -42,12 +72,22 @@ function Body() {
 			</div>
 
 			{/* Using Hugging-Face Inference API*/}
-			<UsingHuggingFace getData={getData} />
+			{serverActive && (
+				<UsingHuggingFace getData={getData} />
+			)}
 
 			{/* Using out own model */}
-			<UsingMyModel1 getData={getData} />
+			{serverActive && (
+				<UsingMyModel1 getData={getData} />
+			)}
 
-			<SentimentPieChart data={sentimentData} />
+			{serverActive && (
+				<SentimentPieChart data={sentimentData} />
+			)}
+
+			{!serverActive && (
+				<div>Waiting for server to load!</div>
+			)}
 
 		</div>
 	)
