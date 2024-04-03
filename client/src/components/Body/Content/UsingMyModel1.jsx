@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import CountdownTimer from './CountdownTimer';
+import CountdownTimer from '../Reusable/CountdownTimer';
+import link_data from '../../../data/links.json';
 
 function UsingMyModel1({getData}) {
   const [text, setText] = useState('');
@@ -56,9 +57,9 @@ function UsingMyModel1({getData}) {
           <span
             className='font-bold underline'
           >
-            <a href='https://github.com/eziokittu/OpiniAnalyzer/blob/main/server_flask/server.py' target="_blank">
+            <button onClick={()=>{window.open(`${link_data.link_myModel1}`, '_blank')}}>
               My Model 1
-            </a>
+            </button>
           </span>
         </div>
         <textarea

@@ -3,5 +3,8 @@
   "link_sankalp": "https://www.linkedin.com/in/sankalp-chauhan/?originalSubdomain=in",
   "link_shreya": "https://www.instagram.com/sharma_jiii84/",
   "link_anish": "https://www.instagram.com/anish.s.7/",
-  "link_anwesha": "https://www.instagram.com/miss._.anwesha_/"
+  "link_anwesha": "https://www.instagram.com/miss._.anwesha_/",
+  "link_docs": "https://www.google.com",
+  "link_huggingface_roberta": "https://huggingface.co/cardiffnlp/twitter-roberta-base-sentiment-latest",
+  "link_myModel1": "https://github.com/eziokittu/OpiniAnalyzer/blob/main/server_flask/server.py"
 }

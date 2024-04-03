@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import CountdownTimer from './CountdownTimer'; // Import the CountdownTimer component
+import CountdownTimer from '../Reusable/CountdownTimer';
+import link_data from '../../../data/links.json';
 
 function UsingHuggingFace({getData}) {
   const [text, setText] = useState('');
@@ -47,13 +48,13 @@ function UsingHuggingFace({getData}) {
         <div>
           Using Huggingface Inference API -
           <span className='font-bold underline'>
-            <a href='https://huggingface.co/cardiffnlp/twitter-roberta-base-sentiment-latest'>
+            <button onClick={()=>{window.open(`${link_data.link_huggingface_roberta}`, '_blank')}}>
               TWITTER-ROBERTA
-            </a>
+            </button>
           </span>
         </div>
         <textarea
-          className="w-full p-4 border border-gray-300 rounded-xl"
+          className="w-full p-4 border border-gray-300 rounded-xl "
           rows="2"
           placeholder="Write your review..."
           value={text}
