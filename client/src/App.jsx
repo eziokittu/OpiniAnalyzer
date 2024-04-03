@@ -6,7 +6,9 @@ import Footer from './components/Footer/Footer';
 import NotFound from './components/Body/Content/NotFound';
 import {BrowserRouter, Routes, Route } from 'react-router-dom';
 import Title from './components/Body/Reusable/Title';
-import Models from './components/Body/Content/Models';
+import Content_WithHuggingFace from './components/Body/Content/Content_WithHuggingFace';
+import Content_WithNLTK from './components/Body/Content/Content_WithNLTK';
+import Content_WithoutNLTK from './components/Body/Content/Content_WithoutNLTK';
 
 function App() {
 	const [serverActive, setServerActive] = useState(false);
@@ -61,12 +63,14 @@ function App() {
   return (
     <BackgroundTransition>
       <Title serverActive={serverActive}/>
-      <div className='fixed -top-10 z-10 blur-xl h-[200px] bg-gray-200 w-full'>fffff</div>
+      <div className='fixed -top-10 z-10 blur-xl h-[200px] bg-gray-200 w-full' />
       <BrowserRouter>
         <Header />
         <Routes>
           <Route exact path="/" element={<Home />} />
-          <Route exact path="/models" element={<Models serverActive={serverActive}/>} />
+          <Route exact path="/without-nltk" element={<Content_WithoutNLTK serverActive={serverActive}/>} />
+          <Route exact path="/with-nltk" element={<Content_WithNLTK serverActive={serverActive}/>} />
+          <Route exact path="/with-huggingface" element={<Content_WithHuggingFace serverActive={serverActive}/>} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />

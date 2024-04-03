@@ -1,0 +1,46 @@
+{
+  "texts" : {
+    "heading1": "Here's how sentiment analysis works in NLP using NLTK",
+    "part1": [
+      ["Import Libraries and Data", 
+        [
+          "You'll start by importing NLTK and any other necessary libraries like pandas for data manipulation.",
+          "Load your text data, which could be reviews, social media posts, or any other text source."
+        ]
+      ],
+      ["Preprocess Text Data", 
+        [
+          "This involves cleaning the text by removing punctuation, stop words (common words like 'the' or 'a'), and converting everything to lowercase.",
+          "You might also perform stemming or lemmatization to reduce words to their root form."
+        ]
+      ],
+      ["Lexicon-Based Analysis (VADER)", 
+        [
+          "NLTK offers a pre-trained sentiment analyzer called VADER (Valence Aware Dictionary and sEntiment Reasoner).",
+          "VADER works by assigning sentiment scores to words based on a predefined lexicon.",
+          "It considers punctuation and capitalization for better analysis of informal text.",
+          "VADER outputs a dictionary with scores for positive, negative, neutral sentiment and a compound score representing the overall sentiment."
+        ]
+      ],
+      ["Machine Learning Approach (Optional)", 
+        [
+          "NLTK allows building custom sentiment classifiers using machine learning.",
+          "This involves creating a training dataset with labeled text data (positive, negative, neutral).",
+          "You can then train a model like Naive Bayes or Support Vector Machine to classify new text."
+        ]
+      ],
+      ["Analyze Sentiment", 
+        [
+          "After using VADER or your trained model, you'll get sentiment scores for your text data.",
+          "You can interpret these scores to understand the overall sentiment expressed in the text.",
+          "Depending on your needs, you can classify the sentiment as positive, negative, or neutral based on predefined thresholds."
+        ]
+      ]
+    ],
+    "part2" : [
+      ["Pros and Cons of Lexicon-Based Approach (VADER)", ""],
+      ["Pros", "Easy to use, fast, good for informal text."],
+      ["Cons", "Less accurate for complex or formal text, may not capture sarcasm or negation."]
+    ] 
+  }
+}
