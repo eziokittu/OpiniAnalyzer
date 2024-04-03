@@ -1,108 +1,50 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-from dotenv import load_dotenv
-import requests
-import os
-from textblob import TextBlob
+# from config import DEV_URL, PORT
+from models import model_anish, model_huggingface, model_nltk
+# import os
 
-# Load environment variables
-load_dotenv()
+# PORT = os.getenv('PORT', 5000)  # Default to 5000 if not set
+# DEV_URL = os.getenv('DEV_URL', "http://localhost:5000")
 
-# Initialize Flask app
 app = Flask(__name__)
-CORS(app)  # Enable CORS
+CORS(app)
 
-# Get environment variables
-# PORT = os.getenv('PORT')
-# HUGGINGFACE_MODEL = os.getenv('APP_HUGGINGFACE_MODEL')
-# HUGGINGFACE_API = os.getenv('APP_HUGGINGFACE_API')
-# DEV_URL = os.getenv('DEV_URL')
 PORT = 5000
-HUGGINGFACE_MODEL = "cardiffnlp/twitter-roberta-base-sentiment-latest"
-HUGGINGFACE_API = "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"
 DEV_URL = "http://localhost:5000"
 
-headers = {
-    'Authorization': f'Bearer {HUGGINGFACE_API}',
-    'Content-Type': 'application/json',
-}
-
-def analyze_with_huggingface(text):
-    # Make the POST request to Hugging Face API
-    response = requests.post(
-        f'https://api-inference.huggingface.co/models/{HUGGINGFACE_MODEL}',
-        headers=headers,
-        json={'inputs': text}
-    )
-    # Parse the response
-    if response.status_code == 200:
-        data = response.json()
-        if data and len(data) > 0:
-            return {
-                'label': data[0][0]['label'],
-                'score': data[0][0]['score'],
-            }
-        else:
-            return 'Failed to analyze sentiment'
-    else:
-        return 'Failed to analyze sentiment'
-
-# Function to perform sentiment analysis
-def analyze_sentiment(text):
-    analysis = TextBlob(text)
-    if analysis.sentiment.polarity > 0:
-        return 'positive'
-    elif analysis.sentiment.polarity == 0:
-        return 'neutral'
-    else:
-        return 'negative'
-    
 @app.route('/api/analyze1', methods=['POST'])
 def analyze_text1():
     try:
-        # Get text from the POST request
         text_data = request.json['text']
-
-        # Analyze text using Hugging Face
-        result = analyze_with_huggingface(text_data)
-
-        # Return the result along with DEV_URL
+        result = model_huggingface.analyze_with_huggingface(text_data)
         return jsonify({'ok': 1, 'result': result, 'url': DEV_URL}), 200
     except Exception as e:
-        # If an error occurs, return an error response
         return jsonify({'ok': -1, 'message': str(e), 'url': DEV_URL}), 500
 
-# Define the route for sentiment analysis
 @app.route('/api/analyze2', methods=['POST'])
 def analyze_text2():
     try:
-        # Get text from the POST request
         data = request.get_json()
         text = data['text']
-
-        # Perform sentiment analysis
-        result = analyze_sentiment(text)
-
-        # Return the sentiment as JSON
+        result = model_nltk.analyze_sentiment(text)
         return jsonify({'ok': 1, 'result': result}), 200
     except Exception as e:
         return jsonify({'ok': -1, 'message': 'error in processing the data!'}), 500
 
-
-# Define the route for sentiment analysis
+# dummy route to check if server is active
 @app.route('/api/working', methods=['GET'])
 def workingStatus():
     try:
         return jsonify({'ok': 1, 'message': 'server is active'}), 200
     except Exception as e:
         return jsonify({'ok': -1, 'message': 'server still not active!'}), 500
-    
+
+# default route
 @app.route("/")
 def home():
-    # return f"Running Flask with sentiment analysis! URL: {DEV_URL}"
     return f"Running Flask with sentiment analysis! PORT: {PORT}!"
 
-# Run the Flask application on the specified port
 if __name__ == '__main__':
     app.run(debug=False, host="0.0.0.0", port=PORT)
     # app.run(debug=True, port=PORT)
