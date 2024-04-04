@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import UsingHuggingFace from './UsingHuggingFace';
-import UsingMyModel1 from './UsingMyModel1';
+import UsingModelWithNltk from './UsingModelWithNltk';
 import SentimentPieChart from './SentimentPieChart';
 
 function Models({serverActive}) {
@@ -37,7 +37,7 @@ function Models({serverActive}) {
       {serverActive && (
       <>
         <UsingHuggingFace getData={getData} />
-        <UsingMyModel1 getData={getData} />
+        <UsingModelWithNltk getData={getData} />
         <SentimentPieChart data={sentimentData} />
       </>
       )}

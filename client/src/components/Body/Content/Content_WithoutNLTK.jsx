@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { IpynbRenderer } from "react-ipynb-renderer";
 import jsonData from '../../../data/content/Anish.json';
 
@@ -8,9 +8,16 @@ import ipynb3 from "../../../files/TTL_Anish_WithoutNLTK.json";
 // Jupyter theme
 import "react-ipynb-renderer/dist/styles/monokai.css";
 
-function Content_WithoutNLTK({serverActive}) {
+function Content_WithoutNLTK({serverActive, getData}) {
   const parts = Object.values(jsonData);
+	const [panelOpen, setPanelOpen] = useState(false);
 
+	// clicking button opens / closes the panel 
+  const ClickPanel = () => {
+		setPanelOpen ((prev) => {
+			return !prev;
+		})
+  }
 	// Helper function to capitalize only the first letter of each word
 	const capitalizeFirstLetter = (string) => {
 		return string.toLowerCase().replace(/^\w/, (c) => c.toUpperCase());
@@ -20,7 +27,18 @@ function Content_WithoutNLTK({serverActive}) {
     <div className='min-h-[400px] p-2 md:p-8'>
       <div className='w-full'>
 				
+				{/* Read Button */}
+				<button 
+					className={`font-bold text-xl md:text-2xl text-white bg-gray-900/70 rounded-3xl px-4 py-2 w-fit mx-auto mb-4 ${panelOpen ? 'sticky top-48 left-2' : ''}`}
+					onClick={ClickPanel}
+				>
+					<span>Sentiment Analysis from scratch</span>
+					{panelOpen && (<span>(Collapse) &uarr;</span>)}
+					{!panelOpen && (<span>(Expand) &darr;</span>)}
+				</button>
+
 				{/* Rendering all parts */}
+				{panelOpen && (
 				<div className='p-2 md:p-8 bg-black/20 rounded-3xl'>
 					{parts.map((part, partIndex) => (
 						<div key={partIndex}>
@@ -44,9 +62,15 @@ function Content_WithoutNLTK({serverActive}) {
 						</div>
 					))}
 				</div>
+				)}
 
 				{/* ipynb viewer */}
-				<IpynbRenderer ipynb={ipynb3} />
+				<div className='p-2 md:p-8 bg-black/20 rounded-3xl my-4'>
+					<div 
+						className='font-bold text-xl md:text-3xl text-white bg-gray-900/70 rounded-3xl px-4 py-2 w-fit mx-auto mb-4'
+					>Example : Sentiment Analysis without using NLTK</div>
+					<IpynbRenderer ipynb={ipynb3} />
+				</div>
 			</div>
     </div>
   )

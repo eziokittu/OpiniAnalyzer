@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import CountdownTimer from '../Reusable/CountdownTimer';
 import link_data from '../../../data/links.json';
 
-function UsingMyModel1({getData}) {
+function UsingModelWithNltk({serverActive, getData, data}) {
   const [text, setText] = useState('');
   const [result, setResult] = useState(null);
   const [disabled, setDisabled] = useState(false);
@@ -115,4 +115,4 @@ function UsingMyModel1({getData}) {
   )
 }
 
-export default UsingMyModel1;
+export default UsingModelWithNltk;

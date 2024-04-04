@@ -13,6 +13,34 @@ import Content_WithoutNLTK from './components/Body/Content/Content_WithoutNLTK';
 function App() {
 	const [serverActive, setServerActive] = useState(false);
 
+	const [countPositive, setCountPositive] = useState(0);
+	const [countNegative, setCountNegative] = useState(0);
+	const [countNeutral, setCountNeutral] = useState(0);
+	const [sentimentData, setSentimentData] = useState({ "neutral": 0, "positive": 0, "negative": 0 });
+	
+	const getData = data => {
+		if (data === 'neutral') {
+			setCountNeutral((prev) => {
+        return prev + 1
+      });
+		}
+		else if (data === 'positive') {
+			setCountPositive((prev) => {
+        return prev + 1
+      });
+		}
+		else if (data === 'negative') {
+			setCountNegative((prev) => {
+        return prev + 1
+      });
+		}
+		// setSentimentData({ "neutral": countNeutral, "positive": countPositive, "negative": countNegative });
+    setSentimentData(prevData => ({
+      ...prevData,
+      [data]: prevData[data] + 1
+    }));
+	}
+
   // Function to format time
 	const formatTime = (timestamp) => {
 		// Create a new Date object using the timestamp
@@ -68,9 +96,9 @@ function App() {
         <Header />
         <Routes>
           <Route exact path="/" element={<Home />} />
-          <Route exact path="/without-nltk" element={<Content_WithoutNLTK serverActive={serverActive}/>} />
-          <Route exact path="/with-nltk" element={<Content_WithNLTK serverActive={serverActive}/>} />
-          <Route exact path="/with-huggingface" element={<Content_WithHuggingFace serverActive={serverActive}/>} />
+          <Route exact path="/without-nltk" element={<Content_WithoutNLTK serverActive={serverActive} getData={getData} data={sentimentData}/>} />
+          <Route exact path="/with-nltk" element={<Content_WithNLTK serverActive={serverActive} getData={getData} data={sentimentData}/>} />
+          <Route exact path="/with-huggingface" element={<Content_WithHuggingFace serverActive={serverActive} getData={getData} data={sentimentData}/>} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
