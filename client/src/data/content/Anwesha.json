@@ -1,6 +1,7 @@
 {
   "texts" : {
     "part1" : [
+      ["Introduction", "" ],
       ["DATA SCIENCE", "Data science is the study of data to extract meaningful insights for business. It is a multidisciplinary approach that combines principles and practices from the fields of mathematics, statistics, artificial intelligence, and computer engineering to analyze large amounts of data. This analysis helps data scientists to ask and answer questions like what happened, why it happened, what will happen, and what can be done with the results."]
     ],
     "part2" : [
@@ -11,6 +12,7 @@
       ["Prescriptive analysis", "Prescriptive analytics takes predictive data to the next level. It not only predicts what is likely to happen but also suggests an optimum response to that outcome. It can analyze the potential implications of different choices and recommend the best course of action. It uses graph analysis, simulation, complex event processing, neural networks, and recommendation engines from machine learning. Back to the flight booking example, prescriptive analysis could look at historical marketing campaigns to maximize the advantage of the upcoming booking spike. A data scientist could project booking outcomes for different levels of marketing spend on various marketing channels. These data forecasts would give the flight booking company greater confidence in their marketing decisions."]
     ],
     "part3" : [
+      ["Machine Learning", "" ],
       ["WHAT IS MACHINE LEARNING ?", "Machine learning (ML) is a branch of artificial intelligence (AI) and computer science that focuses on the using data and algorithms to enable AI to imitate the way that humans learn, gradually improving its accuracy."],
       ["How does machine learning work?", "UC Berkeley breaks out the learning system of a machine learning algorithm into three main parts."],
       ["A Decision Process", "In general, machine learning algorithms are used to make a prediction or classification. Based on some input data, which can be labeled or unlabeled, your algorithm will produce an estimate about a pattern in the data."],
@@ -33,11 +35,17 @@
       ["Random forests", "In a random forest, the machine learning algorithm predicts a value or category by combining the results from a number of decision trees."]
     ],
     "part6" : [
+      ["Natural Language Processing", ""],
+      ["What is NLP?", "Natural Language Processing (NLP) is a subfield of data science that focuses on the interaction between computers and humans through natural language. It involves the development of algorithms and models that enable computers to understand, interpret, and generate human language in a way that is meaningful and useful."],
+      ["Uses of NLP","NLP techniques are used to process and analyze large volumes of text data, extract valuable insights, and perform various tasks such as sentiment analysis, text classification, named entity recognition, machine translation, and more. NLP plays a crucial role in applications like virtual assistants, chatbots, language translation services, text summarization, information retrieval, and sentiment analysis in social media monitoring."],
+      ["Conclusion","Overall, NLP in data science enables computers to bridge the gap between human language and machine understanding, unlocking the potential of text data for valuable insights and applications."]
+    ],
+    "part7" : [
       ["Measuring Model Accuracy", "" ],
       ["HOW DO WE MEASURE ACCURACY OF ML AND NLP MODELS:", "Accuracy is mainly used in classification problems to get the appropriate percentage of the models being executed to know how much of it is correctly predicted. In any model, there will be several classification problems will present when we execute them, then the accuracy plays the main role by talking about whether all the problems are correctly predicted or not with respect to the total number of predictions made by the model. We can calculate the accuracy of any model by dividing the correctly predicted problems by the total number of predictions made."],
       ["Accuracy in Binary Classification:", "In the binary classification case, we can communicate precision in True/False Positive/Negative qualities. The accuracy recipe in Machine learning is given as follows:"]
     ],
-    "part7" : [
+    "part8" : [
       ["How to Check the Accuracy of your Machine Learning Model", "" ],
       ["In the accuracy classes, there are only two classes present.","They are positive/negative"],
       ["TP", "TP stands for True positive, i.e., These are the classes that are correctly predicted, and the correctly predicted classes are marked as positive."],

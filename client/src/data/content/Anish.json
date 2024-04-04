@@ -1,5 +1,6 @@
 {
   "texts": [
+    ["Working of Sentiment Analysis without nltk library", ""],
     ["Text Preprocessing", "Before analyzing sentiment, text data needs preprocessing to clean it. Common steps include removing punctuation, converting text to lowercase, and handling special characters."],
     ["Feature Extraction", "Convert text into numerical or categorical features that can be used by machine learning algorithms. Common techniques include bag-of-words, TF-IDF, or word embeddings like Word2Vec or GloVe."],
     ["Model Selection", "Choose an appropriate model for sentiment analysis. Popular choices include Support Vector Machines (SVM), Naive Bayes, Logistic Regression, or deep learning models like Recurrent Neural Networks (RNNs) or Convolutional Neural Networks (CNNs)."],
