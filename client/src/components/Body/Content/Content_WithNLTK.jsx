@@ -36,7 +36,7 @@ function Content_WithNLTK({serverActive}) {
                   )}
                   <ul>
                     {item[1][0]!=="" && item[1].map((sentence, sentenceIndex) => (
-                      <li className='ml-4'>
+                      <li className=''>
                       <span>{sentenceIndex+1}. </span>
                       <span 
                         className=''

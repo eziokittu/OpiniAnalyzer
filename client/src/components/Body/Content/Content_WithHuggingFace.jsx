@@ -38,7 +38,7 @@ function Content_WithHuggingFace({serverActive}) {
 											<p className='font-bold text-lg md:text-2xl w-fit mt-4'>{capitalizeFirstLetter(item[0])}</p>
 										)
 									)}
-									<p className='ml-4'>{item[1]}</p>
+									<p className=''>{item[1]}</p>
 								</div>
 							))}
 						</div>

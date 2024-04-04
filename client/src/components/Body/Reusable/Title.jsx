@@ -3,7 +3,7 @@ import React from 'react';
 function Title({serverActive}) {
   return (
     <div
-      className='mx-auto flex flex-col text-center py-4 sticky top-0 z-20'
+      className='mx-auto flex flex-col text-center py-4 sticky top-0 z-20 mb-8'
     >
       <div className=' text-center top-4 text-4xl font-bold  text-red-500'>OpiniAnalyzer</div>
       <div
