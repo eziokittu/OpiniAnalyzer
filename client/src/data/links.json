@@ -13,8 +13,10 @@
   "link_sources_flask": "https://flask.palletsprojects.com/en/3.0.x/",
 
   "link_random_cats": "https://www.youtube.com/watch?v=bv3hXOCfdAw",
+  "link_random_kiit": "https://kiit.ac.in/",
 
-  "link_projectDocs": "https://www.google.com",
+  "link_projectRepo": "https://github.com/eziokittu/OpiniAnalyzer",
+  "link_projectDocs": "https://github.com/eziokittu/OpiniAnalyzer",
   "link_model_huggingface_roberta": "https://github.com/eziokittu/OpiniAnalyzer/blob/main/server_flask/models/model_huggingface.py",
   "link_model_withoutNltk": "https://github.com/eziokittu/OpiniAnalyzer/blob/main/server_flask/models/model_withoutNltk.py",
   "link_model_withNltk": "https://github.com/eziokittu/OpiniAnalyzer/blob/main/server_flask/models/model_withNltk.py",

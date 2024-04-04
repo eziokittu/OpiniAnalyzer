@@ -11,9 +11,13 @@ function Documentation() {
           <div className='font-bold text-xl md:text-3xl text-white bg-gray-900/70 rounded-3xl px-4 py-2 w-fit mx-auto mb-2'>Important Links</div>
           <div className='flex flex-col justify-center space-y-2'>
             <button 
+              onClick={() => window.open(jsonData.link_projectRepo, '_blank')}
+              className='text-lg bg-black/10 hover:bg-black/30 rounded-3xl hover:font-bold hover:underline w-fit px-4 py-2 mx-auto transition-all duration-300'
+            >Project Github Repository</button>
+            <button 
               onClick={() => window.open(jsonData.link_projectDocs, '_blank')}
               className='text-lg bg-black/10 hover:bg-black/30 rounded-3xl hover:font-bold hover:underline w-fit px-4 py-2 mx-auto transition-all duration-300'
-            >Full Project Repository</button>
+            >Project Documentation</button>
           </div>
         </div>
         

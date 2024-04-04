@@ -58,7 +58,7 @@ function Footer() {
                 onClick={() => window.open(jsonData.link_sources_flask, '_blank')}
               >Flask</button>
             </span>
-            <span>Python as frontend (hosted on</span>
+            <span>Python as backend (hosted on</span>
             <span className='mx-1'> 
               <button
                 className='hover:no-underline underline hover:font-bold' 
@@ -68,7 +68,15 @@ function Footer() {
             <span>)</span>
           </div>
           <div>in</div>
-          <div>3rd Year - 6th Semester - KIIT University</div>
+          <div>
+            <span>3rd Year - 6th Semester - </span>
+            <span className='ml-1'>
+              <button
+                className='hover:no-underline underline hover:font-bold' 
+                onClick={() => window.open(jsonData.link_random_kiit, '_blank')}
+              >KIIT University</button>
+            </span>
+          </div>
         </div>
       </div>
     </>
