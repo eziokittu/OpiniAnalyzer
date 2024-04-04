@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import CountdownTimer from '../Reusable/CountdownTimer';
 import link_data from '../../../data/links.json';
 
-function UsingModelWithoutNltk({serverActive, getData, data}) {
+function UsingModelWithoutNltk({getData}) {
   const [text, setText] = useState('');
   const [result, setResult] = useState(null);
   const [disabled, setDisabled] = useState(false);

@@ -68,11 +68,12 @@ function Content_WithHuggingFace({serverActive, getData, data}) {
 
 				{/* ipynb viewer */}
 				<div className='p-2 md:p-8 bg-black/20 rounded-3xl my-4'>
-					<div className='font-bold text-xl md:text-3xl text-white bg-gray-900/70 rounded-3xl px-4 py-2 w-fit mx-auto mb-4'>Example : Sentiment Analysis using twitter-RoBERTa</div>
+					<div className='font-bold text-xl md:text-3xl text-white bg-gray-900/70 rounded-3xl px-4 py-2 w-fit mx-auto my-4'>Example : Sentiment Analysis using twitter-RoBERTa</div>
 					<IpynbRenderer ipynb={ipynb2} />
 				</div>
 
 				<div className='p-2 md:p-8 bg-black/20 rounded-3xl my-4'>
+					<div className='font-bold text-xl md:text-3xl text-white bg-gray-900/70 rounded-3xl px-4 py-2 w-fit mx-auto my-4'>Test the Model</div>
 					<UsingHuggingFace getData={getData} serverActive={serverActive}/>
 					<SentimentPieChart data={data} serverActive={serverActive} />
 				</div>

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import CountdownTimer from '../Reusable/CountdownTimer';
 import link_data from '../../../data/links.json';
 
-function UsingModelWithNltk({serverActive, getData, data}) {
+function UsingModelWithNltk({getData}) {
   const [text, setText] = useState('');
   const [result, setResult] = useState(null);
   const [disabled, setDisabled] = useState(false);
@@ -53,12 +53,12 @@ function UsingModelWithNltk({serverActive, getData, data}) {
         {/* Heading */}
         <div>
           {/* Using Another model - Incomplete [work in progress...] */}
-          Using Another model - 
+          Model using - 
           <span
             className='font-bold underline'
           >
             <button onClick={()=>{window.open(`${link_data.link_myModel1}`, '_blank')}}>
-              My Model 1
+              NLTK library
             </button>
           </span>
         </div>

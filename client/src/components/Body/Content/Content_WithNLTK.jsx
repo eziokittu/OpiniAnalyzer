@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { IpynbRenderer } from "react-ipynb-renderer";
-// import UsingHuggingFace from './U';
+import UsingModelWithNltk from './UsingModelWithNltk';
+import SentimentPieChart from './SentimentPieChart';
 import jsonData from '../../../data/content/Sankalp.json';
 
 // import ipynb file as json
@@ -9,7 +10,7 @@ import ipynb4 from "../../../files/TTL_Sankalp_usingNLTK.json";
 // Jupyter theme
 import "react-ipynb-renderer/dist/styles/monokai.css";
 
-function Content_WithNLTK({serverActive, getData}) {
+function Content_WithNLTK({serverActive, getData, data}) {
   const parts = Object.entries(jsonData.texts);
   const [panelOpen, setPanelOpen] = useState(false);
 
@@ -75,6 +76,12 @@ function Content_WithNLTK({serverActive, getData}) {
 				<div className='p-2 md:p-8 bg-black/20 rounded-3xl my-4'>
 					<div className='font-bold text-xl md:text-3xl text-white bg-gray-900/70 rounded-3xl px-4 py-2 w-fit mx-auto mb-4'>Example : Sentiment Analysis using NLTK</div>
 					<IpynbRenderer ipynb={ipynb4} />
+				</div>
+
+        <div className='p-2 md:p-8 bg-black/20 rounded-3xl my-4'>
+          <div className='font-bold text-xl md:text-3xl text-white bg-gray-900/70 rounded-3xl px-4 py-2 w-fit mx-auto my-4'>Test the Model</div>
+          <UsingModelWithNltk getData={getData} serverActive={serverActive}/>
+					<SentimentPieChart data={data} serverActive={serverActive} />
 				</div>
 			</div>
     </div>

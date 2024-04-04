@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { IpynbRenderer } from "react-ipynb-renderer";
+import UsingModelWithoutNltk from './UsingModelWithoutNltk';
+import SentimentPieChart from './SentimentPieChart';
 import jsonData from '../../../data/content/Anish.json';
 
 // import ipynb file as json
@@ -8,7 +10,7 @@ import ipynb3 from "../../../files/TTL_Anish_WithoutNLTK.json";
 // Jupyter theme
 import "react-ipynb-renderer/dist/styles/monokai.css";
 
-function Content_WithoutNLTK({serverActive, getData}) {
+function Content_WithoutNLTK({serverActive, getData, data}) {
   const parts = Object.values(jsonData);
 	const [panelOpen, setPanelOpen] = useState(false);
 
@@ -70,6 +72,12 @@ function Content_WithoutNLTK({serverActive, getData}) {
 						className='font-bold text-xl md:text-3xl text-white bg-gray-900/70 rounded-3xl px-4 py-2 w-fit mx-auto mb-4'
 					>Example : Sentiment Analysis without using NLTK</div>
 					<IpynbRenderer ipynb={ipynb3} />
+				</div>
+
+				<div className='p-2 md:p-8 bg-black/20 rounded-3xl my-4'>
+					<div className='font-bold text-xl md:text-3xl text-white bg-gray-900/70 rounded-3xl px-4 py-2 w-fit mx-auto my-4'>Test the Model</div>
+					<UsingModelWithoutNltk getData={getData} serverActive={serverActive}/>
+					<SentimentPieChart data={data} serverActive={serverActive} />
 				</div>
 			</div>
     </div>
