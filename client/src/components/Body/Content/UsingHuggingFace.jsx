@@ -48,7 +48,7 @@ function UsingHuggingFace({getData}) {
         <div>
           Using Huggingface Inference API -
           <span className='font-bold underline'>
-            <button onClick={()=>{window.open(`${link_data.link_huggingface_roberta}`, '_blank')}}>
+            <button onClick={()=>{window.open(`${link_data.link_model_huggingface_roberta}`, '_blank')}}>
               TWITTER-ROBERTA
             </button>
           </span>

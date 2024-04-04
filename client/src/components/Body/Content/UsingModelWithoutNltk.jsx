@@ -57,7 +57,7 @@ function UsingModelWithoutNltk({getData}) {
           <span
             className='font-bold underline'
           >
-            <button onClick={()=>{window.open(`${link_data.link_myModel1}`, '_blank')}}>
+            <button onClick={()=>{window.open(`${link_data.link_model_withoutNltk}`, '_blank')}}>
               NLTK Library
             </button>
           </span>

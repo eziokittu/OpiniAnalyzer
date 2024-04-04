@@ -63,7 +63,10 @@ function Content_WithoutNLTK({serverActive, getData, data}) {
 				<Element name={'section3'}>						
 					<div className='p-2 md:p-8 bg-black/20 rounded-3xl my-4'>
 						<div className='font-bold text-xl md:text-3xl text-white bg-gray-900/70 rounded-3xl px-4 py-2 w-fit mx-auto my-4'>Test the Model</div>
-						<UsingModelWithoutNltk getData={getData} serverActive={serverActive}/>
+						{serverActive && (<UsingModelWithoutNltk getData={getData} serverActive={serverActive}/>)}
+						{!serverActive && (
+							<div className='text-center text-xl'>Please wait! The server is loading!</div>
+						)}
 						<SentimentPieChart data={data} serverActive={serverActive} />
 					</div>
 				</Element>	

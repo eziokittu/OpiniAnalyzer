@@ -5,10 +5,19 @@
   "link_anish": "https://www.instagram.com/anish.s.7/",
   "link_anwesha": "https://www.instagram.com/miss._.anwesha_/",
 
+  "link_sources_vercel": "https://vercel.com/",
+  "link_sources_render": "https://render.com/",
+  "link_sources_react": "https://react.dev/",
+  "link_sources_vite": "https://vitejs.dev/",
+  "link_sources_tailwindCss": "https://tailwindcss.com/",
+  "link_sources_flask": "https://flask.palletsprojects.com/en/3.0.x/",
+
+  "link_random_cats": "https://www.youtube.com/watch?v=bv3hXOCfdAw",
+
   "link_projectDocs": "https://www.google.com",
-  "link_model_huggingface_roberta": "https://huggingface.co/cardiffnlp/twitter-roberta-base-sentiment-latest",
-  "link_model_withoutNltk": "https://github.com/eziokittu/OpiniAnalyzer/blob/main/server_flask/server.py",
-  "link_model_withNltk": "https://www.kaggle.com/datasets/odins0n/top-20-play-store-app-reviews-daily-update/data",
+  "link_model_huggingface_roberta": "https://github.com/eziokittu/OpiniAnalyzer/blob/main/server_flask/models/model_huggingface.py",
+  "link_model_withoutNltk": "https://github.com/eziokittu/OpiniAnalyzer/blob/main/server_flask/models/model_withoutNltk.py",
+  "link_model_withNltk": "https://github.com/eziokittu/OpiniAnalyzer/blob/main/server_flask/models/model_withNltk.py",
   "link_kaggleDataset": "https://www.kaggle.com/datasets/odins0n/top-20-play-store-app-reviews-daily-update/data",
   "link_contribution_anish": "https://github.com/eziokittu/OpiniAnalyzer/blob/main/TTL_Anish_WithoutNLTK.ipynb",
   "link_contribution_bodhisatta": "https://github.com/eziokittu/OpiniAnalyzer/blob/main/TTL_Bodhisatta_GooglePlayReviews.ipynb",

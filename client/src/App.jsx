@@ -13,7 +13,7 @@ import Documentation from './components/Body/Content/Documentation';
 
 function App() {
 	const [serverActive, setServerActive] = useState(false);
-	const [openSecondHeader, setOpenSecondHeader] = useState(false);
+	const [openSecondHeader, setOpenSecondHeader] = useState(2);
 
 	const [countPositive, setCountPositive] = useState(0);
 	const [countNegative, setCountNegative] = useState(0);
