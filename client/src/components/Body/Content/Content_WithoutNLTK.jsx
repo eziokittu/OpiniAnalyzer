@@ -33,13 +33,12 @@ function Content_WithoutNLTK({serverActive}) {
 										<p className='font-bold text-xl md:text-3xl text-white bg-gray-900/70 rounded-3xl px-4 py-2 w-fit mx-auto mt-16'>{capitalizeFirstLetter(item[0])}</p>
 									) : (
 										item[0].length===2 ? (
-											<span className='font-bold text-lg md:text-2xl w-fit '>{item[0]}</span>
+											<p className='font-bold text-lg md:text-2xl w-fit mt-4'>{item[0]}</p>
 										) : (
-											<span className='font-bold text-lg md:text-2xl w-fit '>{capitalizeFirstLetter(item[0])}</span>
+											<p className='font-bold text-lg md:text-2xl w-fit mt-4'>{capitalizeFirstLetter(item[0])}</p>
 										)
 									)}
-									<span> - </span>
-									<span className=''>{item[1]}</span>
+									<p className='ml-4'>{item[1]}</p>
 								</div>
 							))}
 						</div>

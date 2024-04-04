@@ -1,7 +1,7 @@
 {
   "texts" : {
-    "heading1": "Here's how sentiment analysis works in NLP using NLTK",
     "part1": [
+      ["Here's how sentiment analysis works using NLTK", [""]],
       ["Import Libraries and Data", 
         [
           "You'll start by importing NLTK and any other necessary libraries like pandas for data manipulation.",
@@ -38,9 +38,25 @@
       ]
     ],
     "part2" : [
-      ["Pros and Cons of Lexicon-Based Approach (VADER)", ""],
-      ["Pros", "Easy to use, fast, good for informal text."],
-      ["Cons", "Less accurate for complex or formal text, may not capture sarcasm or negation."]
+      ["Pros and Cons of Lexicon-Based Approach (VADER)", [""]],
+      ["Pros", 
+        [
+          "Ease of Use: Lexicon-based approaches like VADER are relatively easy to implement and use compared to more complex machine learning models. They typically require less computational resources and training data.",
+          "Fast Processing: Lexicon-based approaches are often faster than machine learning models since they do not require training time. They can process text data quickly, making them suitable for real-time applications such as social media monitoring.",
+          "Interpretability: Lexicon-based approaches provide transparency and interpretability. Since sentiment scores are based on predefined word lists or dictionaries, it's easier to understand how sentiment is calculated for each piece of text.",
+          "Domain Adaptability: Lexicon-based approaches can be adapted to different domains or languages by updating the sentiment lexicon or dictionary. This flexibility allows users to customize sentiment analysis for specific contexts or industries.",
+          "Robustness: Lexicon-based approaches are often robust to noisy or informal text data, such as social media posts or product reviews, where grammar and language conventions may vary."
+        ]
+      ],
+      ["Cons", 
+        [
+          "Limited Context Awareness: Lexicon-based approaches may struggle with understanding context-dependent sentiment. They often assign sentiment scores based solely on individual words without considering the surrounding context, leading to potential inaccuracies.",
+          "Difficulty with Sarcasm and Irony: Lexicon-based approaches may misinterpret sarcastic or ironic expressions since they rely on the sentiment polarity of individual words. Sarcasm and irony can change the overall sentiment of a sentence, making it challenging for lexicon-based tools to accurately capture.",
+          "Limited Sentiment Nuances: Lexicon-based approaches may oversimplify sentiment analysis by reducing sentiment to positive, negative, or neutral categories. They may struggle to capture nuanced sentiment expressions or subtle variations in sentiment intensity.",
+          "Dependency on Lexicons: The effectiveness of lexicon-based approaches heavily depends on the quality and coverage of the sentiment lexicon or dictionary used. Lexicons may contain inaccuracies, biases, or gaps, leading to errors in sentiment analysis results.",
+          "Limited Generalization: Lexicon-based approaches may not generalize well to new or unseen data, especially in domains or languages where the sentiment lexicon is not well-established or comprehensive. They may perform poorly on texts with vocabulary or linguistic structures not covered by the lexicon."
+        ]
+      ]
     ] 
   }
 }
