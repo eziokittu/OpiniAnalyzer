@@ -9,15 +9,22 @@ import Title from './components/Body/Reusable/Title';
 import Content_WithHuggingFace from './components/Body/Content/Content_WithHuggingFace';
 import Content_WithNLTK from './components/Body/Content/Content_WithNLTK';
 import Content_WithoutNLTK from './components/Body/Content/Content_WithoutNLTK';
+import Documentation from './components/Body/Content/Documentation';
 
 function App() {
 	const [serverActive, setServerActive] = useState(false);
+	const [openSecondHeader, setOpenSecondHeader] = useState(false);
 
 	const [countPositive, setCountPositive] = useState(0);
 	const [countNegative, setCountNegative] = useState(0);
 	const [countNeutral, setCountNeutral] = useState(0);
 	const [sentimentData, setSentimentData] = useState({ "neutral": 0, "positive": 0, "negative": 0 });
 	
+	const openSecondNavbarCallback = (value) => {
+		setOpenSecondHeader(() => {
+			return value;
+		})
+	}
 	const getData = data => {
 		if (data === 'neutral') {
 			setCountNeutral((prev) => {
@@ -93,9 +100,10 @@ function App() {
       <Title serverActive={serverActive}/>
       <div className='fixed -top-10 z-10 blur-xl h-[200px] bg-gray-200 w-full' />
       <BrowserRouter>
-        <Header />
+        <Header openSecondHeader={openSecondHeader} openSecondNavbarCallback={openSecondNavbarCallback}/>
         <Routes>
           <Route exact path="/" element={<Home />} />
+          <Route exact path="/docs" element={<Documentation />} />
           <Route exact path="/without-nltk" element={<Content_WithoutNLTK serverActive={serverActive} getData={getData} data={sentimentData}/>} />
           <Route exact path="/with-nltk" element={<Content_WithNLTK serverActive={serverActive} getData={getData} data={sentimentData}/>} />
           <Route exact path="/with-huggingface" element={<Content_WithHuggingFace serverActive={serverActive} getData={getData} data={sentimentData}/>} />

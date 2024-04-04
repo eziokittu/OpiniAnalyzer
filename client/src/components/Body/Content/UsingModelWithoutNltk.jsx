@@ -11,7 +11,7 @@ function UsingModelWithoutNltk({getData}) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/analyze2`, {
+    const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/analyze3`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -26,7 +26,7 @@ function UsingModelWithoutNltk({getData}) {
         setDisabled(true);
         setShowTimer(true); // Show the timer
         setTimerTrigger(true); // Trigger the timer
-        getData(jsonResponse.result)
+        getData(jsonResponse.result[2].split(': ')[1])
       } else {
         console.log(jsonResponse.message);
       }
@@ -53,15 +53,16 @@ function UsingModelWithoutNltk({getData}) {
         {/* Heading */}
         <div>
           {/* Using Another model - Incomplete [work in progress...] */}
-          Using Another model - 
+          Model without using - 
           <span
             className='font-bold underline'
           >
             <button onClick={()=>{window.open(`${link_data.link_myModel1}`, '_blank')}}>
-              My Model 1
+              NLTK Library
             </button>
           </span>
         </div>
+
         <textarea
           className="w-full p-4 border border-gray-300 rounded-xl"
           rows="2"
@@ -69,6 +70,7 @@ function UsingModelWithoutNltk({getData}) {
           value={text}
           onChange={(e) => setText(e.target.value)}
         ></textarea>
+
         <button 
           disabled={disabled}
           onClick={handleSubmit}
@@ -80,34 +82,11 @@ function UsingModelWithoutNltk({getData}) {
         {showTimer && <CountdownTimer triggerTimer={timerTrigger} onTimerEnd={handleTimerEnd} timeInSeconds={1} />}
         
         {result && (
-          <div className="sm:absolute relative bottom-2 right-0">
-            {/* For negative result */}
-            {result==='negative' && (
-              <div>
-                <span>:( 👎</span>
-                <span className='text-pink-700 font-bold'>NEGATIVE Review</span>
-                {/* <span className=''> ({Math.round(result.score * 100)}%)</span> */}
-              </div>
-            )}
-            
-            {/* For Positive result */}
-            {result==='positive' && (
-              <div>
-                <span>:) 👍</span>
-                <span className='text-green-700 font-bold'>POSITIVE Review</span>
-                {/* <span className=''> ({Math.round(result.score * 100)}%)</span> */}
-              </div>
-            )}
-
-            {/* For Neutral result */}
-            {result==='neutral' && (
-              <div>
-                <span>:| 😑</span>
-                <span className='text-yellow-700 font-bold'>NEUTRAL Review</span>
-                {/* <span className=''>({Math.round(result.score * 100)}%)</span> */}
-              </div>
-            )} 
-            
+          <div className=''>
+            <div>Output:</div>
+            {result.map((r, index) => (
+              <div key={index} className=''>{r}</div>
+            ))}
           </div>
         )}
       </div>

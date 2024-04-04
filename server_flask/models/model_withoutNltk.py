@@ -35,22 +35,24 @@ def analyze_sentiment(tokens):
             sentiment_score -= 1
 
     if sentiment_score > 0:
-        return "Positive"
+        return "positive"
     elif sentiment_score < 0:
-        return "Negative"
+        return "negative"
     else:
-        return "Neutral"
+        return "neutral"
 
 # Main function
-def analyze_anish(input_text):
+def analyze_withoutNltk(input_text):
+    ans = []
     # Input text
-    # input_text = input("Enter a sentence: ")
-    print("Input Text:", input_text)
+    ans.append("Input Text: " + input_text)
 
     # Preprocess text
     preprocessed_text = preprocess_text(input_text)
-    print("Preprocessed Text:", preprocessed_text)
+    ans.append("Preprocessed Text: " + str(preprocessed_text))
 
     # Analyze sentiment
     sentiment = analyze_sentiment(preprocessed_text)
-    print("Sentiment:", sentiment)
+    ans.append("Sentiment: " + sentiment)
+
+    return ans

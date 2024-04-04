@@ -3,6 +3,7 @@ import { IpynbRenderer } from "react-ipynb-renderer";
 import UsingModelWithNltk from './UsingModelWithNltk';
 import SentimentPieChart from './SentimentPieChart';
 import jsonData from '../../../data/content/Sankalp.json';
+import { Element } from 'react-scroll';
 
 // import ipynb file as json
 import ipynb4 from "../../../files/TTL_Sankalp_usingNLTK.json";
@@ -12,14 +13,7 @@ import "react-ipynb-renderer/dist/styles/monokai.css";
 
 function Content_WithNLTK({serverActive, getData, data}) {
   const parts = Object.entries(jsonData.texts);
-  const [panelOpen, setPanelOpen] = useState(false);
 
-	// clicking button opens / closes the panel 
-  const ClickPanel = () => {
-		setPanelOpen ((prev) => {
-			return !prev;
-		})
-  }
 	// Helper function to capitalize only the first letter of each word
 	const capitalizeFirstLetter = (string) => {
 		return string.toLowerCase().replace(/^\w/, (c) => c.toUpperCase());
@@ -29,18 +23,8 @@ function Content_WithNLTK({serverActive, getData, data}) {
     <div className='min-h-[400px] p-2 md:p-8'>
       <div className='w-full'>
 
-				{/* Read Button */}
-				<button 
-					className={`font-bold text-xl md:text-2xl text-white bg-gray-900/70 rounded-3xl px-4 py-2 w-fit mx-auto mb-4 ${panelOpen ? 'sticky top-48 left-2' : ''}`}
-					onClick={ClickPanel}
-				>
-					<span>Sentiment Analysis with NLTK</span>
-					{panelOpen && (<span>(Collapse) &uarr;</span>)}
-					{!panelOpen && (<span>(Expand) &darr;</span>)}
-				</button>
-
 				{/* Rendering all parts */}
-				{panelOpen && (
+        <Element name={'section1'}>
           <div className='p-2 md:p-8 bg-black/20 rounded-3xl'>
             {parts.map(([partKey, partData], partIndex) => (
               <div
@@ -70,19 +54,24 @@ function Content_WithNLTK({serverActive, getData, data}) {
               </div>
             ))}
           </div>
-        )}
+        </Element>
 
-				{/* ipynb viewer */}
-				<div className='p-2 md:p-8 bg-black/20 rounded-3xl my-4'>
-					<div className='font-bold text-xl md:text-3xl text-white bg-gray-900/70 rounded-3xl px-4 py-2 w-fit mx-auto mb-4'>Example : Sentiment Analysis using NLTK</div>
-					<IpynbRenderer ipynb={ipynb4} />
-				</div>
+				{/* example in ipynb viewer */}
+        <Element name={'section2'}>
+          <div className='p-2 md:p-8 bg-black/20 rounded-3xl my-4'>
+            <div className='font-bold text-xl md:text-3xl text-white bg-gray-900/70 rounded-3xl px-4 py-2 w-fit mx-auto mb-4'>Example : Sentiment Analysis using NLTK</div>
+            <IpynbRenderer ipynb={ipynb4} />
+          </div>
+        </Element>
 
-        <div className='p-2 md:p-8 bg-black/20 rounded-3xl my-4'>
-          <div className='font-bold text-xl md:text-3xl text-white bg-gray-900/70 rounded-3xl px-4 py-2 w-fit mx-auto my-4'>Test the Model</div>
-          <UsingModelWithNltk getData={getData} serverActive={serverActive}/>
-					<SentimentPieChart data={data} serverActive={serverActive} />
-				</div>
+        {/* testing the model */}
+        <Element name={'section3'}>
+          <div className='p-2 md:p-8 bg-black/20 rounded-3xl my-4'>
+            <div className='font-bold text-xl md:text-3xl text-white bg-gray-900/70 rounded-3xl px-4 py-2 w-fit mx-auto my-4'>Test the Model</div>
+            <UsingModelWithNltk getData={getData} serverActive={serverActive}/>
+            <SentimentPieChart data={data} serverActive={serverActive} />
+          </div>
+        </Element>
 			</div>
     </div>
   )

@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 # from config import DEV_URL, PORT
-from models import model_anish, model_huggingface, model_nltk
+from models import model_withNltk, model_withoutNltk, model_huggingface
 # import os
 
 # PORT = os.getenv('PORT', 5000)  # Default to 5000 if not set
@@ -27,7 +27,17 @@ def analyze_text2():
     try:
         data = request.get_json()
         text = data['text']
-        result = model_nltk.analyze_sentiment(text)
+        result = model_withNltk.analyze_sentiment(text)
+        return jsonify({'ok': 1, 'result': result}), 200
+    except Exception as e:
+        return jsonify({'ok': -1, 'message': 'error in processing the data!'}), 500
+    
+@app.route('/api/analyze3', methods=['POST'])
+def analyze_text3():
+    try:
+        data = request.get_json()
+        text = data['text']
+        result = model_withoutNltk.analyze_withoutNltk(text)
         return jsonify({'ok': 1, 'result': result}), 200
     except Exception as e:
         return jsonify({'ok': -1, 'message': 'error in processing the data!'}), 500
