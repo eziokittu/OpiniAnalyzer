@@ -1,9 +1,0 @@
-Abstract - 
-This project explores the intersection of machine learning (ML) and natural language processing (NLP) to develop a comprehensive sentiment analysis tool. Utilizing state-of-the-art models from the Hugging Face transformers library (especially twitter's RoBERTa) and techniques from the Python library NLTK, alongside alternative approaches without NLTK, we aim to provide nuanced sentiment detection across various text inputs (such a google play store reviews). The core of this tool is a Flask-based backend, which interfaces with both the Hugging Face API for advanced model inference and NLTK for foundational NLP operations. The frontend, developed with React and styled using TailwindCSS, offers a user-friendly interface for live interaction with the sentiment analysis tool. This full-stack web development project not only incorporates interactive demonstrations of the sentiment analysis process via Google Collab Notebooks embedded within the web interface but also provides a theoretical background on the underlying ML and NLP concepts. The project's architecture supports live testing of models, enabling users to understand the practical applications of sentiment analysis in real-time. Through this project, we demonstrate the integration of cutting-edge ML models and NLP techniques in a full-stack application, highlighting the accessibility and potential of current technology in processing and understanding human language.
-
-Table of Contents - 
-
-Introduction (scope of the work and its importance)
-Design/Implementation
-Testing/Result and Analysis
-Conclusions & future enhancements

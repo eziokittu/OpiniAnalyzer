@@ -16,7 +16,7 @@
   "link_random_kiit": "https://kiit.ac.in/",
 
   "link_projectRepo": "https://github.com/eziokittu/OpiniAnalyzer",
-  "link_projectDocs": "https://github.com/eziokittu/OpiniAnalyzer",
+  "link_projectDocs": "https://github.com/eziokittu/OpiniAnalyzer/blob/main/TTL_ProjectReport_Group4_SentimentAnalysis_GooglePlayReviews.pdf",
   "link_model_huggingface_roberta": "https://github.com/eziokittu/OpiniAnalyzer/blob/main/server_flask/models/model_huggingface.py",
   "link_model_withoutNltk": "https://github.com/eziokittu/OpiniAnalyzer/blob/main/server_flask/models/model_withoutNltk.py",
   "link_model_withNltk": "https://github.com/eziokittu/OpiniAnalyzer/blob/main/server_flask/models/model_withNltk.py",
