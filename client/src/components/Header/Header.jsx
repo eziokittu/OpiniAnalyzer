@@ -93,10 +93,10 @@ function Header({openSecondNavbarCallback, openSecondHeader}) {
         space-x-1 md:space-x-2  shadow-lg p-2'
       >
         <div className='bg-gray-200 rounded-3xl p-1 md:px-4 md:py-2'>
-          <button onClick={()=>{scrollToSection('section1')}}>Read About Model</button>
+          <button onClick={()=>{scrollToSection('section1')}}>Introduction</button>
         </div>
         <div className='bg-gray-200 rounded-3xl p-1 md:px-4 md:py-2'>
-          <button onClick={()=>{scrollToSection('section2')}}>Example Code</button>
+          <button onClick={()=>{scrollToSection('section2')}}>Play Store Review Analysis</button>
         </div>
       </div>
       )}
