@@ -89,14 +89,14 @@ function Header({openSecondNavbarCallback, openSecondHeader}) {
       {openSecondHeader===2 && (
       <div
         className='rounded-3xl bg-black/40 text-black w-fit mx-auto mt-2
-        text-[14px]  md:text-lg flex flex-row justify-center items-center leading-tight
+        text-[12px]  md:text-lg flex flex-row justify-center items-center leading-tight
         space-x-1 md:space-x-2  shadow-lg p-2'
       >
         <div className='bg-gray-200 rounded-3xl p-1 md:px-4 md:py-2'>
-          <button onClick={()=>{scrollToSection('section1')}}>Read About Model</button>
+          <button onClick={()=>{scrollToSection('section1')}}>Intro to Data Science</button>
         </div>
         <div className='bg-gray-200 rounded-3xl p-1 md:px-4 md:py-2'>
-          <button onClick={()=>{scrollToSection('section2')}}>Example Code</button>
+          <button onClick={()=>{scrollToSection('section2')}}>Play Store review Analysis</button>
         </div>
       </div>
       )}
